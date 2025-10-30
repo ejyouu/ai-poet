@@ -4,7 +4,10 @@ from langchain_core.output_parsers import StrOutputParser
 import streamlit as st
 
 #ChatOpenAI 초기화
-llm=init_chat_model("gpt-4o-mini", model_provider="openai")
+llm = ChatOpenAI(
+    model="gpt-4o-mini",
+    api_key=os.getenv("OPENAI_API_KEY")
+)
 
 #프롬프트 템플릿 생성
 prompt = ChatPromptTemplate.from_messages([
